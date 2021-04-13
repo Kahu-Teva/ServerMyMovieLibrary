@@ -1,0 +1,22 @@
+{
+  "name": "servermymovielibrary",
+  "version": "1.0.0",
+  "description": "My server express for my repository MyMovieLibrary.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kahu-Teva/ServerMyMovieLibrary.git"
+  },
+  "author": "TEVAARAUHARA Kahu-ei-nui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kahu-Teva/ServerMyMovieLibrary/issues"
+  },
+  "homepage": "https://github.com/Kahu-Teva/ServerMyMovieLibrary#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
