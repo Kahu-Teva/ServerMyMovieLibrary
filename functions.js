@@ -47,15 +47,15 @@ module.exports = {
         res.status(200).json(directorsList)
     },
     getPeople : function(req,res){
-        const id = req.params.id
-        const dbLc = db.peoples.filter(movie => movie._id === id)
+        const id = req.query.id
+        const dbLc = db.peoples.filter(people => people._id === id)
         res.status(200).json(dbLc)
     },
     getPeoples : function(req,res){
-        res.status(200).json(db.movies)
+        res.status(200).json(db.peoples)
     },
     getMovie : function(req,res){
-        const id = req.params.id
+        const id = req.query.id
         const dbLc = db.movies.filter(movie => movie._id === id)
         res.status(200).json(dbLc)
     },
