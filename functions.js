@@ -1,5 +1,3 @@
-const db = require("./db.json");
-
 module.exports = {
     getActors : function(req,res){
         let actorsListDB = [];
