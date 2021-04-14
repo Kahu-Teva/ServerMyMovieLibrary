@@ -55,7 +55,7 @@ module.exports = {
         res.setHeader('Content-type','application/json');
         movies = Model("movies", movieSchema);
         movies.findById(req.query.id, function (err, docs) {
-            (err)?(res.status(404).send({error:'error in movie id'}))
+            (err)?(res.status(200).send({error:'ERROR_MOVIE_NOT_FOUND'}))
             :(res.status(200).json(docs))
         });
     },
@@ -71,7 +71,7 @@ module.exports = {
         
         peoples = Model("peoples", peopleSchema);
         mopeoplesviesModele.findById(req.query.id, function (err, docs) {
-            (err)?(res.status(404).send({error:'error in id'}))
+            (err)?(res.status(200).send({error:'ERROR_PEOPLE_NOT_FOUND'}))
             :(res.status(200).json(docs))
         });
     }
