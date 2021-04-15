@@ -5,6 +5,7 @@ const cors = require("cors");
 router = express.Router();
 router.use(cors());
 router.use(express.urlencoded());
+
 router.get("/", functions.getMovies);
 router.get("/movies", functions.getMovies);
 router.get("/randomMovie", functions.getRandomMovie);

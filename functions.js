@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
-const Models = require("./modeles.js")
-/* Models.Users.insertOne(
-    {name : "admin", mdp : "admin"}
-);
- */
+const Models = require("./modeles.js");
+
 module.exports = {
     getRandomMovie : function(req,res){
         res.setHeader('Content-type','application/json');
@@ -61,9 +58,14 @@ module.exports = {
 
     insertUser : function(req,res){
         res.setHeader('Content-type','application/json');
-        Models.Users.insertMany(
-            {name : req.body.name, mdp : req.body.mdp}
-        );
+        res.setHeader('Content-type','application/urlencoded');
+        console.log(req.body);
+        if(req.body.name){
+
+            // Models.Users.insertMany(
+            //     {name : req.body.name, mdp : req.body.mdp}
+            // );
+        }
     },
     deleteUser : function(req,res){
         res.setHeader('Content-type','application/json');
