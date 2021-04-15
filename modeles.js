@@ -35,16 +35,16 @@ const peopleSchema = new Schema({
     picture:String
 },{collection: "peoples"});
 
-const actorSchema = new Schema({
+const userSchema = new Schema({
     _id:Schema.Types.ObjectId,
-    lastname:String,
-    firstname:String,
-    picture:String
-},{collection: "peoples"});
+    name:String,
+    mdp:String
+},{collection: "users"});
 
 
 module.exports = {
     Movies : Model("movies", movieSchema),
-    Peoples : Model("peoples", peopleSchema)
+    Peoples : Model("peoples", peopleSchema),
+    Users : Model("users", userSchema)
 }
 

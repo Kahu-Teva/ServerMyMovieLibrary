@@ -1,5 +1,9 @@
+const mongoose = require("mongoose");
 const Models = require("./modeles.js")
-
+/* Models.Users.insertOne(
+    {name : "admin", mdp : "admin"}
+);
+ */
 module.exports = {
     getRandomMovie : function(req,res){
         res.setHeader('Content-type','application/json');
@@ -15,9 +19,17 @@ module.exports = {
     },
     getMovies : function(req,res){
         res.setHeader('Content-type','application/json');
-        Models.Movies.find({}, function (err, docs) {
-            res.status(200).json(docs)
-        });
+        /* if(req.query.genre){
+            Models.Movies.find({genre:req.query.genre}, function (err, docs) {
+                res.status(200).json(docs)
+            });
+        }
+        else{ */
+            Models.Movies.find({}, function (err, docs) {
+                res.status(200).json(docs)
+            });
+        /*   
+        } */
     },
     getMovie : function(req,res){
         res.setHeader('Content-type','application/json');
@@ -38,34 +50,39 @@ module.exports = {
             (err)?(res.status(200).send({error:'ERROR_PEOPLE_NOT_FOUND'}))
             :(res.status(200).json(docs))
         });
+    },
+
+
+
+
+
+/* ##################################################################"" */
+
+
+    insertUser : function(req,res){
+        res.setHeader('Content-type','application/json');
+        Models.Users.insertMany(
+            {name : req.body.name, mdp : req.body.mdp}
+        );
+    },
+    deleteUser : function(req,res){
+        res.setHeader('Content-type','application/json');
+        Models.Users.deleteMany(
+            {_id : req.body.id},
+            function(err,result){
+                res.send(result);
+            }
+        );
+    },
+    updateUser : function(req,res){
+        res.setHeader('Content-type','application/json');
+        Models.Users.updateMany(
+            {_id : req.body.id},
+            {name : req.body.name , mdp : req.body.mdp},
+            function(err,result){
+                res.send(result);
+            }
+
+        );
     }
-    /*
-    ,
-     getActors : function(req,res){
-        movies = Model("movies", movieSchema);
-        
-        movies.find({actors}, function (err, docs1) {
-            actors = Model("peoples", peopleSchema);
-            actors.find({}, function (err, docs2) {
-                let actors = docs1;
-                let people = docs2;
-                let movieListe = [];
-                let actorsListe = [];
-                
-                movie.map(currentMovie => (
-                    peopleListe.push(currentPeople)
-                ));
-
-                actors.map(currentPeople => (
-                    actorsListe.push(currentPeople)
-                ));
-
-                // movie
-                console.log("movie: ", movieListe[1].actors);
-                console.log("people: ", peopleListe[0]._id);
-                res.json(peopleListe[0].firstname);
-            });
-        })
-        
-    } */
 }
