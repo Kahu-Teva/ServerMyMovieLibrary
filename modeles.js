@@ -10,6 +10,10 @@ db.once('open', function() {
     console.log("connecté à Mongoose")
 });
 
+const actor = new Schema({
+    id:String,
+    role:String
+})
 const movieSchema = new Schema({
     _id:Schema.Types.ObjectId,
     title:String,
@@ -21,7 +25,7 @@ const movieSchema = new Schema({
     trailerLink:String,
     directors:[String],
     writers:[String],
-    actors:[[String]],
+    actors:[actor],
     rate:String
 },{collection :"movies"});
 
