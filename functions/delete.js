@@ -1,7 +1,7 @@
 const Models = require("./../modeles.js");
 
 module.exports = {
-    deletePeople : function(req,res){
+    deletePeople : (req,res) => {
         res.setHeader('Content-type','application/json');
 
         Models.Peoples.deleteMany({_id : req.body.id},
@@ -12,7 +12,7 @@ module.exports = {
             }
         );
     },
-    deleteMovie : function(req,res){
+    deleteMovie : (req,res) => {
         res.setHeader('Content-type','application/json');
         Models.Movies.deleteMany({_id : req.body.id},
             function(err,result){
@@ -22,7 +22,7 @@ module.exports = {
             }
         );       
     }, 
-    deleteUser : function(req,res){
+    deleteUser : (req,res) => {
         res.setHeader('Content-type','application/json');
         Models.Users.deleteMany({_id : req.body.id},
             function(err,result){

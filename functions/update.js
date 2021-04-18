@@ -1,8 +1,9 @@
 const Models = require("./../modeles.js");
 
 module.exports = {
-    updatePeople : function(req,res){
-        res.setHeader('Content-type','application/json');        
+    updatePeople : (req,res) =>{
+        res.setHeader('Content-type','application/json');
+        console.log("request: "); 
         if(    req.body.lastname         != "" 
             && req.body.firstname   != ""
             && req.body.biography      != ""
@@ -10,7 +11,7 @@ module.exports = {
             && req.body.deathDate   != ""
             && req.body.picture          != ""            
         ){            
-            Models.Movies.updateMany(
+            Models.Peoples.updateMany(
                 {_id : req.body.id},
                 {
                     lastname : req.body.lastname ,
@@ -28,7 +29,7 @@ module.exports = {
             );
         }
     },    
-    updateMovie : function(req,res){
+    updateMovie : (req,res) => {
         res.setHeader('Content-type','application/json');
         
         if(    req.body.title         != "" 
@@ -60,7 +61,7 @@ module.exports = {
             );
         }
     },
-    updateUser : function(req,res){
+    updateUser : (req,res) => {
         res.setHeader('Content-type','application/json');
         Models.Users.updateMany(
             {_id : req.body.id},

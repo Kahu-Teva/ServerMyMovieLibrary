@@ -21,7 +21,7 @@ module.exports = {
     getMovie : (req,res) => {
         res.setHeader('Content-type','application/json');
         Models.Movies.findById(req.query.id, function (err, docs) {
-            (err)?(res.status(200).send({error:'ERROR_MOVIE_NOT_FOUND'}))
+            (err)?(res.status(200).send({error:'DATABASE_ERROR_MOVIE_NOT_FOUND'}))
             :(res.status(200).json(docs))
         });
     },
@@ -33,9 +33,8 @@ module.exports = {
     },
     getPeople : (req,res) => {
         res.setHeader('Content-type','application/json');
-        console.log("requests");
         Models.Peoples.findById(req.query.id, function (err, docs) {
-            (err)?(res.status(200).send({error:'ERROR_PEOPLE_NOT_FOUND'}))
+            (err)?(res.status(200).send({error:'DATABASE_ERROR_PEOPLE_NOT_FOUND'}))
             :(res.status(200).json(docs))
         });
     }
